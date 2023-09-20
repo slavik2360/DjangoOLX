@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block body %}
+
+<div class="albums-container container-fluid">
+    <div class="row">
+        {% for prod in product %}
+        <div class="col-sm-4 col-lg-2">
+            <div class="thumbnail">
+                <img src="{{ prod.image }}" alt="">
+                <p>{{ prod.name }}</p>
+                <p>{{ prod.description }}</p>
+                <p>{{ prod.price }}$$</p>
+                <a href="{% url 'delete_product' prod.id %}" class="btn btn-danger">Delete Product</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

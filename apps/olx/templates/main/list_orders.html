@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block body %}
+
+<h2>List of Orders</h2>
+
+<ul>
+    {% for order in orders %}
+    <li>
+        {{ order.user }} ordered {{ order.product }} for ${{ order.money }}
+        <a href="{% url 'delete_order' order.id %}" class="btn btn-danger">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
